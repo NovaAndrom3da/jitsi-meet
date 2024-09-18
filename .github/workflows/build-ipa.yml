@@ -5,19 +5,15 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v1
-      - name: prepare project
+      - name: Install NPM Dependencies
+        run: npm install
+      - name: Install Cocoapods Dependencies
         run: |
-          echo "============================== npm install =============================="
-          npm install
-          echo "============================== ls =============================="
-          ls node_modules/react-native-webrtc/tools || true
-          echo "============================== cd =============================="
           cd ios
-          echo "============================== pod =============================="
           pod install
       - uses: mxcl/xcodebuild@v3
         with:
           action: build
           platform: iOS
           workspace: ios/jitsi-meet.xcworkspace
-          scheme: jitsi-meet
+          scheme: JitsiMeet
