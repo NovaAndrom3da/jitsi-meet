@@ -18,5 +18,6 @@ jobs:
       - uses: mxcl/xcodebuild@v3
         with:
           action: build
-          working-directory: ./ios/app
           platform: iOS
+          workspace: ios/jitsi-meet.xcworkspace
+          scheme: jitsi-meet
