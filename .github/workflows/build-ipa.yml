@@ -11,9 +11,21 @@ jobs:
         run: |
           cd ios
           pod install
-      - uses: mxcl/xcodebuild@v3
+      - name: Compile
+        uses: mxcl/xcodebuild@v3
         with:
           action: build
           platform: iOS
           workspace: ios/jitsi-meet.xcworkspace
           scheme: JitsiMeet
+      - name: Export
+        uses: mxcl/xcodebuild@v3
+        with:
+          action: archive
+          platform: iOS
+          workspace: ios/jitsi-meet.xcworkspace
+          scheme: JitsiMeet
+      - run: ls
+      - uses: actions/upload-artifact@v4
+        with:
+          path: .
