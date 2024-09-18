@@ -1,6 +1,9 @@
+name: ipa
+on: [push]
 jobs:
   build:
     runs-on: macos-latest
-    workspace: ios/app
     steps:
       - uses: mxcl/xcodebuild@v3
+        with:
+          workspace: ios/app
