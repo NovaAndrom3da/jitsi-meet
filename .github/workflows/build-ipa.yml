@@ -3,7 +3,11 @@ on: [push]
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        platform:
+          - iOS
     steps:
       - uses: mxcl/xcodebuild@v3
         with:
-          workspace: ios/app
+          working-directory: ios/app
