@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: |
+          npm install
+          ./node_modules/react-native-webrtc/tools/downloadBitcode.sh
           cd ios
           pod install
       - uses: mxcl/xcodebuild@v3
