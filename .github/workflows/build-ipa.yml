@@ -11,13 +11,16 @@ jobs:
       - uses: actions/checkout@v1
       - name: prepare project
         run: |
+          echo "============================== npm install =============================="
           npm install
-          ls node_modules
-          ls node_modules/react-native-webrtc || true
+          echo "============================== ls =============================="
           ls node_modules/react-native-webrtc/tools || true
+          echo "============================== cd =============================="
           cd ios
+          echo "============================== pod =============================="
           pod install
       - uses: mxcl/xcodebuild@v3
         with:
           action: build
           working-directory: ./ios/app
+          platform: iOS
