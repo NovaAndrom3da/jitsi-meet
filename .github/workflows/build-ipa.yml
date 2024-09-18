@@ -8,6 +8,8 @@ jobs:
         platform:
           - iOS
     steps:
+      - run: ls
+      - run: pwd
       - uses: mxcl/xcodebuild@v3
         with:
-          working-directory: /Users/runner/work/jitsi-meet/jitsi-meet/ios/app
+          working-directory: ./ios/app
