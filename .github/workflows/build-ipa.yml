@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: mxcl/xcodebuild@v3
         with:
-          working-directory: ios/app
+          working-directory: /Users/runner/work/jitsi-meet/jitsi-meet/ios/app
