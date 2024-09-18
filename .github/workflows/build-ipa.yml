@@ -8,8 +8,7 @@ jobs:
         platform:
           - iOS
     steps:
-      - run: ls
-      - run: pwd
+      - uses: actions/checkout@v1
       - uses: mxcl/xcodebuild@v3
         with:
           working-directory: ./ios/app
