@@ -9,9 +9,12 @@ jobs:
           - iOS
     steps:
       - uses: actions/checkout@v1
-      - run: |
+      - name: prepare project
+        run: |
           npm install
-          ./node_modules/react-native-webrtc/tools/downloadBitcode.sh
+          ls node_modules
+          ls node_modules/react-native-webrtc || true
+          ls node_modules/react-native-webrtc/tools || true
           cd ios
           pod install
       - uses: mxcl/xcodebuild@v3
