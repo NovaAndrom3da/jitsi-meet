@@ -9,6 +9,9 @@ jobs:
           - iOS
     steps:
       - uses: actions/checkout@v1
+      - uses: maxim-lobanov/setup-cocoapods@v1
+        with:
+          podfile-path: ios/Podfile.lock
       - uses: mxcl/xcodebuild@v3
         with:
           action: build
